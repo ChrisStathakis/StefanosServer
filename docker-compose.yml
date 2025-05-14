@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./app/database.db:/app/app/database.db
+      - ./app/media:/app/app/media     # persist uploaded media
+    environment:
+      - PYTHONUNBUFFERED=1
